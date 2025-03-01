@@ -18,6 +18,13 @@ export default function RootLayout({ children }) {
 
         <footer className=" bg-blue-500"></footer>
         {/*sidebar*/}
+
+        <footer>
+          <div>
+            {/*TO DO*/}
+            <p> Made with love by XXX </p>
+          </div>
+        </footer>
         {/*main*/}
         {children}
       </body>
