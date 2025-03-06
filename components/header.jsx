@@ -35,7 +35,9 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             <SignedOut>
-              <SignInButton />
+              <SignInButton forceRedirectUrl="/dashboard">
+                <Button variant="outline">Login </Button>
+              </SignInButton>
             </SignedOut>
             <SignedIn>
               <UserButton afterSignOutUrl="/" />
