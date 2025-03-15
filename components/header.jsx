@@ -9,13 +9,13 @@ import { LayoutDashboard } from "lucide-react";
 
 const Header = () => {
   return (
-    <div className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
+    <div className="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b">
       <nav className="container mx-auto px-4 flex items-center justify-between">
         <header className="flex items-center justify-between p-4">
           <nav className="flex items-center gap-4">
             <Link href="/">
               <Image
-                src="/logo.png"
+                src={"/logo.png"}
                 alt="logo"
                 width={200}
                 height={60}
@@ -24,10 +24,10 @@ const Header = () => {
             </Link>
 
             <SignedIn>
-              <Link href="/insights">
-                <Button variant="ghost">
-                  <LayoutDashboard className="h-4 w-4 mr-2" />
-                  Industry Insights
+              <Link href="/dashboard">
+                <Button variant="outline">
+                  <LayoutDashboard size={18} />
+                  <span className="hidden md:inline">Dashboard</span>
                 </Button>
               </Link>
             </SignedIn>
@@ -35,8 +35,8 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             <SignedOut>
-              <SignInButton forceRedirectUrl="/dashboard">
-                <Button variant="outline">Login </Button>
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard">
+                <Button variant="outline">Login</Button>
               </SignInButton>
             </SignedOut>
             <SignedIn>
