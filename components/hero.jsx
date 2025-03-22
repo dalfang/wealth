@@ -7,12 +7,10 @@ import Image from "next/image";
 export const Hero = () => {
   return (
     <div className="flex flex-col items-center gap-8 text-center py-12">
-      <h1>
-        Manage Your Finances
-        <br />
-        With AI
+      <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title">
+        Manage Your Finances With AI
       </h1>
-      <p className="text-lg text-muted-foreground">
+      <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-muted-foreground">
         An AI-powered financial management platform that helps you track,
         analyze, and optimize your spending with real-time insights.
       </p>
@@ -36,7 +34,7 @@ export const Hero = () => {
           src="/banner.jpeg"
           alt="Banner"
           fill
-          className="object-cover"
+          className="object-cover rounded-lg shadow-2x1 border mx-auto"
           priority
         />
       </div>
