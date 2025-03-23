@@ -3,8 +3,25 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export const Hero = () => {
+  const imageRef = userRef();
+
+  useEffect(() => {
+    const imageElement = imageRef.current;
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 100;
+
+      if (scrollPosition > scrollThreshold) {
+        imageElement.classList.add("scrolled");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+  });
+
   return (
     <div className="flex flex-col items-center gap-8 text-center py-12">
       <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title">
@@ -29,14 +46,16 @@ export const Hero = () => {
         </Link>
       </div>
 
-      <div className="relative w-full max-w-[1280px] aspect-video">
-        <Image
-          src="/banner.jpeg"
-          alt="Banner"
-          fill
-          className="object-cover rounded-lg shadow-2x1 border mx-auto"
-          priority
-        />
+      <div className=" hero-image-wrapper relative w-full max-w-[1280px] aspect-video">
+        <div ref={imageRef} className="hero-image">
+          <Image
+            src="/banner.jpeg"
+            alt="Banner"
+            fill
+            className="object-cover rounded-lg shadow-2x1 border mx-auto"
+            priority
+          />
+        </div>
       </div>
     </div>
   );
