@@ -3,24 +3,22 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 export const Hero = () => {
-  const imageRef = userRef();
+  const imageRef = useRef();
 
   useEffect(() => {
-    const imageElement = imageRef.current;
-
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const scrollThreshold = 100;
-
-      if (scrollPosition > scrollThreshold) {
-        imageElement.classList.add("scrolled");
+      if (imageRef.current) {
+        const scrolled = window.scrollY > 50;
+        imageRef.current.classList.toggle("scrolled", scrolled);
       }
     };
+
     window.addEventListener("scroll", handleScroll);
-  });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="flex flex-col items-center gap-8 text-center py-12">
@@ -46,13 +44,13 @@ export const Hero = () => {
         </Link>
       </div>
 
-      <div className=" hero-image-wrapper relative w-full max-w-[1280px] aspect-video">
-        <div ref={imageRef} className="hero-image">
+      <div className="hero-image-wrapper relative w-full h-[500px]">
+        <div ref={imageRef} className="hero-image relative w-full h-full">
           <Image
             src="/banner.jpeg"
             alt="Banner"
             fill
-            className="object-cover rounded-lg shadow-2x1 border mx-auto"
+            className="object-cover"
             priority
           />
         </div>
