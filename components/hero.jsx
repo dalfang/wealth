@@ -44,13 +44,14 @@ export const Hero = () => {
         </Link>
       </div>
 
-      <div className="hero-image-wrapper relative w-full h-[500px]">
-        <div ref={imageRef} className="hero-image relative w-full h-full">
+      <div className="hero-image-wrapper mt-5 md:mt-0">
+        <div ref={imageRef} className="hero-image">
           <Image
             src="/banner.jpeg"
             alt="Banner"
-            fill
-            className="object-cover"
+            width={1280}
+            height={720}
+            className="rounded-lg shadow-2xl border mx-auto"
             priority
           />
         </div>
