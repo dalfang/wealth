@@ -15,6 +15,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -113,6 +114,14 @@ export default function Home() {
             Join thousands of user who are already managing their finances
             smarter with Wealth
           </p>
+          <Link href="/dashboard">
+            <Button
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-blue-50 animate-bounce"
+            >
+              Start Free Trials{" "}
+            </Button>
+          </Link>
         </div>
       </section>
     </div>
