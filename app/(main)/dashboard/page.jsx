@@ -1,15 +1,15 @@
 import React from "react";
 
-const Dashboard = () => {
+const DashboardPage = () => {
   return (
     <div className="px-5">
-      <div>
-        <h1 className="text-6xl font-bold gradient-title mb-5">Dashboard</h1>
-      </div>
+      {/* Budget Progress  */}
 
-      {/* Dashboard Page */}
+      {/* Overview */}
+
+      {/* Account Grid */}
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;
