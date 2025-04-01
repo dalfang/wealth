@@ -17,16 +17,15 @@ export async function createAccount(data) {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
 
-    const user = await db.user.findUnique({ where: { clerkUser: userId } });
-    if (!userId) {
+    const user = await db.user.findUnique({ where: { clerkUserId: userId } });
+    if (!user) {
       throw new Error("User not found");
     }
 
     //Convert balance to float before saving
-
-    const balanceFloat = persFloat(data.balance);
+    const balanceFloat = parseFloat(data.balance);
     if (isNaN(balanceFloat)) {
-      throw new ErrorEvent("Invalid balance amount");
+      throw new Error("Invalid balance amount");
     }
 
     //Check if this's the user's first account
@@ -34,12 +33,11 @@ export async function createAccount(data) {
       where: { userId: user.id },
     });
 
-    const shouldฺBeDefault =
+    const shouldBeDefault =
       existingAccounts.length === 0 ? true : data.isDefault;
 
     //if this account should be default, unset other default accounts
-
-    if (shouldฺBeDefault) {
+    if (shouldBeDefault) {
       await db.account.updateMany({
         where: { userId: user.id, isDefault: true },
         data: { isDefault: false },
@@ -51,7 +49,7 @@ export async function createAccount(data) {
         ...data,
         balance: balanceFloat,
         userId: user.id,
-        isDefault: shouldฺBeDefault,
+        isDefault: shouldBeDefault,
       },
     });
 
