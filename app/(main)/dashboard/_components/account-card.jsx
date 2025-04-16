@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { toast } from "sonner";
-import { updateDefaultAccount } from "@/actions/dashboard";
+import { updateDefaultAccount } from "@/actions/account";
 
 export function AccountCard({ account }) {
   const { name, type, balance, id, isDefault } = account;
