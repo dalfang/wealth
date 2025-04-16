@@ -2,7 +2,6 @@
 
 import { ArrowUpRight, ArrowDownRight, CreditCard } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { Badge } from "@/components/ui/badge";
 import { useEffect } from "react";
 import useFetch from "@/hooks/use-fetch";
 import {
@@ -13,8 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { updateDefaultAccount } from "@/actions/account";
 import { toast } from "sonner";
+import { updateDefaultAccount } from "@/actions/dashboard";
 
 export function AccountCard({ account }) {
   const { name, type, balance, id, isDefault } = account;
