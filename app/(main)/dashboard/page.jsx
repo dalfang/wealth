@@ -4,6 +4,7 @@ import { getDashboardData } from "@/actions/dashboard";
 import { CreateAccountDrawer } from "@/components/create-account-drawer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
+import AccountCard from "./_components/account-card";
 
 export default async function DashboardPage() {
   const [accounts, transactions] = await Promise.all([
