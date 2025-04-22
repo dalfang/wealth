@@ -26,11 +26,13 @@ export function AccountCard({ account }) {
   } = useFetch(updateDefaultAccount);
 
   const handleDefaultChange = async (event) => {
-    event.preventDefault(); // Prevent navigation
+    event.preventDefault();
+    // Prevent navigation
 
     if (isDefault) {
       toast.warning("You need atleast 1 default account");
-      return; // Don't allow toggling off the default account
+      return;
+      // Don't allow toggling off the default account
     }
 
     await updateDefaultFn(id);
